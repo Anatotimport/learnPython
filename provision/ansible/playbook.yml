@@ -10,3 +10,7 @@
     apt:
       name: python3.9-full
       state: present
+  - name: Install mission python related packages
+    apt:
+      name: python3-pygame, python3-pgzero
+      state: present
