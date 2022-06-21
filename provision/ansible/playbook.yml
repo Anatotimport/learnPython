@@ -6,11 +6,24 @@
   - name: Update repositories
     apt:
       update_cache: yes
+
   - name: Install python full package
     apt:
       name: python3.9-full
       state: present
+
   - name: Install mission python related packages
     apt:
       name: python3-pygame, python3-pgzero
       state: present
+
+  - name: Install gnome-core package
+    apt:
+      name: gnome-core
+      state: present
+
+  - name: Download and extract mission python sources
+    ansible.builtin.unarchive:
+      src: https://nostarch.com/download/escape.zip
+      dest: /home/vagrant/devel/escape/
+      remote_src: yes
