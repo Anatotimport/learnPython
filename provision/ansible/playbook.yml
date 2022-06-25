@@ -22,6 +22,11 @@
       name: gnome-core
       state: present
 
+  - name: Create mission python directory
+    file:
+      path: /home/vagrant/devel/escape
+      state: directory
+
   - name: Download and extract mission python sources
     ansible.builtin.unarchive:
       src: https://nostarch.com/download/escape.zip
