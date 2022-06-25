@@ -13,5 +13,6 @@ Vagrant.configure("2") do |config|
   # Ansible will be run from the guest, as in inception.
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "provision/ansible/playbook.yml"
+    ansible.verbose = "v"
   end
 end
