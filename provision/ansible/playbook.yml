@@ -22,6 +22,19 @@
       name: gnome-core
       state: present
 
+  - name: Ensure X11 is not using localhost
+    lineinfile:
+      create: yes
+      line: X11UseLocalhost no
+      owner: root
+      state: present
+      path: /etc/ssh/sshd_config.d/X11.conf
+
+  - name: Restart sshd
+    service:
+      name: sshd
+      state: restarted
+
   - name: Create mission python directory
     file:
       path: /home/vagrant/devel/escape
