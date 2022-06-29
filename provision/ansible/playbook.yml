@@ -17,9 +17,14 @@
       name: python3-pygame, python3-pgzero
       state: present
 
-  - name: Install gnome-core package
+  #- name: Install gnome-core package
+    #apt:
+      #name: gnome-core
+      #state: present
+
+  - name: Install x11 utils and dependencies
     apt:
-      name: gnome-core
+      name: x11-utils
       state: present
 
   - name: Ensure X11 is not using localhost
