@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/ubuntu2010" # Base box for our lab
+  config.vm.box = "centos/7" # Base box for our lab
 
   # Synced folder. Needed for ansible_local
   config.vm.synced_folder ".", "/vagrant"

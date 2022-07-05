@@ -4,18 +4,8 @@
   become: yes
   tasks: 
   - name: Update repositories
-    apt:
+    yum:
       update_cache: yes
-
-  - name: Install python full package
-    apt:
-      name: python3.9-full
-      state: present
-
-  - name: Install sound dependencies 
-    apt:
-      name: pulseaudio
-      state: present
 
   - name: Ensure X11 is not using localhost
     lineinfile:

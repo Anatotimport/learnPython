@@ -4,17 +4,17 @@ PUBKEYPATH="/tmp/host-id_rsa.pub" # Temporary buffer file to deploy host public 
 MAINUSER="vagrant"
 AUTHKEYFILE="/home/$MAINUSER/.ssh/authorized_keys"
 
-apt install -y ansible
+yum install -y ansible
 
 # Deploying host public key
 # Trying to make this idempotent
 if [[ -f $PUBKEYPATH ]]; then
   echo "Host public key found at $PUBKEYPATH"
-  
+
   # If there's only one authorized key, we must install ours.
   if [[ $(sudo -i -u $MAINUSER wc -l $AUTHKEYFILE | cut -f1 -d " ") -lt 2 ]]; then
     echo "Deploying pubkey" && cat $PUBKEYPATH >> $AUTHKEYFILE
-  else 
+  else
     echo "Pubkey not deployed"
   fi
 else
